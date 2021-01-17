@@ -230,6 +230,7 @@ namespace align
 
                       if( !mappingRecordLine.empty() ) {
                           this->parseMashmapRow(mappingRecordLine, currentRecord);
+
                           if(currentRecord.qId == qSeqId) {
                               //auto q = new seq_record_t(currentRecord, mappingRecordLine, seq);
                               //seq_queue.push(q);
@@ -300,12 +301,12 @@ namespace align
                               //std::cerr << seq << std::endl;
 
                               //Check if all mapping records are processed already
-                              if( !mappingListStream.eof() ) {
+                              while(!mappingListStream.eof() && mappingRecordLine.empty()) {
                                   //Read first record from mashmap output file during first iteration
-                                  if(mappingRecordLine.empty())
-                                  {
-                                      std::getline(mappingListStream, mappingRecordLine);
-                                  }
+                                  std::getline(mappingListStream, mappingRecordLine);
+                              }
+
+                              if( !mappingRecordLine.empty() ) {
                                   this->parseMashmapRow(mappingRecordLine, currentRecord);
                               
                                   //Check if mapping query id matches current query sequence id
