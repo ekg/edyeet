@@ -259,6 +259,8 @@ namespace skch
               else
                   std::cerr << "[edyeet::skch::Sketch::computeFreqHist] With threshold " << this->percentageThreshold
                             << "\%, consider all minimizers during lookup." << std::endl;
+          } else {
+              std::cerr << "[edyeet::skch::Sketch::computeFreqHist] No minimizers." << std::endl;
           }
       }
 
