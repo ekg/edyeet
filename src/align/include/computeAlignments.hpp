@@ -223,10 +223,12 @@ namespace align
                       const std::string& _seq) {
                       ++total_seqs;
                       //total_seq_length += seq.size();
-                      if( !mappingListStream.eof() ) {
-                          if(mappingRecordLine.empty()) {
-                              std::getline(mappingListStream, mappingRecordLine);
-                          }
+
+                      while(!mappingListStream.eof() && mappingRecordLine.empty()) {
+                          std::getline(mappingListStream, mappingRecordLine);
+                      }
+
+                      if( !mappingRecordLine.empty() ) {
                           this->parseMashmapRow(mappingRecordLine, currentRecord);
                           if(currentRecord.qId == qSeqId) {
                               //auto q = new seq_record_t(currentRecord, mappingRecordLine, seq);
