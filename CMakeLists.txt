@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.2 FATAL_ERROR)
-project(wflign VERSION 0.0.1)
+project(edyeet VERSION 0.0.1)
 
 include(GNUInstallDirs)
 include(CheckCXXCompilerFlag)
