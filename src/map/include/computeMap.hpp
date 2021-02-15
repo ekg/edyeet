@@ -1,6 +1,6 @@
 /**
  * @file    computeMap.hpp
- * @brief   implments the sequence mapping logic
+ * @brief   implements the sequence mapping logic
  * @author  Chirag Jain <cjain7@gatech.edu>
  */
 
@@ -654,7 +654,7 @@ namespace skch
 
                 res.selfMapFilter = ((param.skip_self || param.skip_prefix) && Q.fullLen > ref.len);
 
-                //Compute additional statistics -> strand, reference compexity
+                //Compute additional statistics -> strand, reference complexity
                 {
                   SlideMapper<Q_Info> slidemap(Q);
                   slidemap.insert_ref(l2.optimalStart, l2.optimalEnd);
@@ -903,7 +903,7 @@ namespace skch
       /**
        * @brief                       This routine is to make sure that all mapping boundaries
        *                              on query and reference are not outside total 
-       *                              length of sequeunces involved
+       *                              length of sequences involved
        * @param[in]     input         input read details
        * @param[in/out] readMappings  Mappings computed by Mashmap (L2 stage) for a read
        */
